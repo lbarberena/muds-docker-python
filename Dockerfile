@@ -3,5 +3,6 @@ RUN apt-get update && apt-get -y install git && rm -rf /var/lib/apt/lists/*
 ADD . /app
 WORKDIR /app
 RUN pip install -r requirements.txt
+ENV PYTHONPATH "${PYTHONPATH}:/app"
 EXPOSE 8000
 CMD ["python3", "./main.py"]
