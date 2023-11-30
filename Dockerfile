@@ -4,5 +4,5 @@ ADD . /app
 WORKDIR /app
 RUN pip install -r requirements.txt
 ENV PYTHONPATH "${PYTHONPATH}:/app"
-EXPOSE 8000
+EXPOSE ${PORT}
 CMD ["python3", "./main.py"]
