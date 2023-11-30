@@ -1,14 +1,18 @@
+import os
 import requests
 import pandas as pd
 from parsers.clean_date import clean_date
 from models.patents_md import Patent
 from flask import Flask, send_file
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 
 @app.route('/data', methods=['GET'])
 def get_data():
-    response = requests.get("https://data.nasa.gov/resource/gquh-watm.json")
+    response = requests.get(os.getenv('NASA_API_URL'))
     data = response.json()
 
     new_data = clean_date(data)
@@ -32,4 +36,4 @@ def get_data():
     return send_file(csv_path, as_attachment=True)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000)
+    app.run(host=f"{os.getenv('HOST')}", port=os.getenv('PORT'))
