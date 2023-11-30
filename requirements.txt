@@ -2,3 +2,4 @@ pandas
 pydantic
 requests
 flask
+python-dotenv
