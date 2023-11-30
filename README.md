@@ -16,6 +16,6 @@ At the end of the process a CSV file is generated, with the processed data.
 
 To download the CSV file you can use the following endpoint:
 
->  **GET:** `/data`
->  Example: `{your_host}:{PORT}/data`
->  `http://localhost:8000/data`
+- **GET:** `/data`
+>  Example:
+>  - `{your_host}:{PORT}/data` ->`http://localhost:8000/data`
